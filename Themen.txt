@@ -1,0 +1,90 @@
+Tipp: Aufgaben logisch konzipiert, Blattaufgaben zuerst machen
+      
+
+Information und ihre Darstellung (XML) 1.3.X.X
+
+
+XML (wohlgeformt) eXtenisble Markup Langugage
+DTD (valide) Dokumenttypdefinition
+
+kommt dran!
+
+Verarbeitung (eher nicht)
+
+
+
+Algorithmus 2.X.X...
+
+Grundlagen Begriffe (eher unwichtig) 2.1.1.3
+Korrektheit (eher unwichtig) 2.1.3.1.7
+Effizienz (Laufzeitverhalten)
+Rekursion
+
+LISTE! (kaggle,open,Zahlen) (mit modulo durchlaufen,zb uhrzeit)
+
+Sortieralgorithmen(effizienz,ungefähr+unterschiede)
+
+Graph (Adjazensmatrix+Tabelle)(bei weglängen unendlich)(s.Bild OneDrive) 100% (Dijkstra anwenden)
+Rundreiseproblem (TravellingSalesProbleme)[(np-hart/np vollständig)] ((n-1)!)
+Näherungsverfahren durchspielen (2.3.5.4.5)
+
+
+Automaten und Sprachen 4.X.X...
+
+Syntax (Formal), Semantik (Bedeutung), Logik
+Grammatik in Sprache einordnen...(s. Finn) (Chomsky)
+EA
+Kellerautomat, Turingmaschine (vllt)
+
+
+
+Objektorientierte Programmierung (OOP) 7.X.X.X
+
+Klassendiagramme
+
+
+
+ 
+Deklarative Programmierung (Logische Programmierung) 8.X.X.X
+
+Aufbau Wissensbasis (Fakten...)(8.2.1.3)
+Listen
+Anonyme Variablen (Bei Warning Punktabzug)
+Definitionen (Faktum) 100%
+Regeln/Funktionen
+Unterschied Deklarativ/Imperativ (8.2.4.2)
+
+
+
+
+
+Funktionsweise eines Rechners 12.3.X...
+
+Aufbau eines Rechnernetzwerkes (2 Teile/Operationswerk (Steuerwerk))
+
+Registermaschinenprogramm (12.3.3.1.1)
+
+Fetch -> decode -> ausführen (Fundamentalzyklus) (12.3.4.1.11)
+
+RISC/CISC Unterschied
+
+
+
+
+Informatik und Gesellschaft 5.X.X... (s. ZSMfasung Blatt)
+
+
+
+Kommunikation in Rechnernetzen 10.X.X.X
+
+TCP-Schichtenmodell !
+Simplex/Half Duplex/Full Duplex
+fertige Mini-RS232-Protkoll !
+CRC
+Kollisionserkennung (ALOHA, CSMA/CD) evtl.
+Netzmaske einfach (256**2-2(Netzwerk .0, Broadcast .255))
+
+
+Kryptologie 11.X.X.X
+HTTPS (11.7.8)
+Sicherheitsziele (11.1.3) ! (HTTPS erüllt alle Kriterien (4))

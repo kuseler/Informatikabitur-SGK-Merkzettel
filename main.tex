@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage[margin=2cm]{geometry}
+% \usepackage[utf8]{inputenc} is no longer required (since 2018)
+
+%Set the font (output) encoding
+%--------------------------------------
+\usepackage[T1]{fontenc} %Not needed by LuaLaTeX or XeLaTeX
+%--------------------------------------
+\usepackage{blindtext}
+\usepackage[most]{tcolorbox}
+\definecolor{block-gray}{gray}{0.95}
+
+
+\newtcolorbox{zitat}[2][]{%
+    colback=block-gray,
+    grow to right by=-10mm,
+    grow to left by=-10mm,
+    boxrule=0pt,
+    boxsep=0pt,
+    breakable,
+    enhanced jigsaw,
+    borderline west={4pt}{0pt}{red},
+    title={#2\par},
+    colbacktitle={block-gray},
+    coltitle={black},
+    fonttitle={\bfseries},
+    attach title to upper={},
+    #1,
+}
+
+
+%German-specific commands
+%--------------------------------------
+\usepackage[ngerman]{babel}
+\shorthandoff{"}
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{Mathe-matik wieder-gewinnen}
+%--
+\usepackage{amsmath}
+%--------------------------------------
+\usepackage{listings}
+
+%\usepackage{color}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  showstringspaces=false,
+  commentstyle=\color{gray}\upshape
+}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan},
+  morekeywords={xmlns,version,type}% list your attributes here
+}
+
+\usepackage{fontspec}
+\begin{document}
+%\tableofcontents
+%\vspace{2cm} %Add a 2cm space
+\part{XML}
+\input{XML/xml.tex}
+\newpage
+\part{Algorithmen}
+\newpage
+\input{Algorithmen}
+\end{document}
+

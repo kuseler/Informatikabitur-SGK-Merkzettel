@@ -1,0 +1,78 @@
+\section{XML}
+\begin{zitat}{XML}
+XML steht für  "'eXtensible Markup Language"'. XML ist eine universelle, erweiterbare Sprache, mit der man konkrete Auszeichnungssprachen erzeugen kann.
+\end{zitat}
+.\\
+Mit XML können Dokumente zur Informationsdarstellung gebildet werden.
+Die Struktur von XML-Dokumenten kann genau festgelegt werden, um Sprachen für bestimmte Anwendungsbereiche zu entwickeln.
+\section{Wohlgeformt}
+\begin{zitat}{Wohlgeformt}
+ Ein XML-Dokument, das alle Regeln von XML erfüllt, heißt wohlgeformt.
+\end{zitat}
+.\\
+Beispiel-XML-Dokument:
+\lstset{language=XML}
+\lstset{backgroundcolor=\color{block-gray}}
+\begin{lstlisting}
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Kurs SYSTEM "kurs.dtd">
+<Kurs name="Infokurs">
+    <Schueler id="87" geschlecht="m">
+      <Vorname>Tobias</Vorname>
+      <Name>Schwarz</Name>
+      <Kurssprecher/>
+    </Schueler>
+</Kurs>
+\end{lstlisting}
+.\\
+Ein XML-Dokument beginnt mit einem Prolog, dieser kennzeichnet das Dokument als XML-Dokument.
+\begin{lstlisting}
+<?xml version="1.0" encoding="utf-8"?>
+\end{lstlisting}
+.\\
+Eine XML-Datei besteht aus Elementen. Diese können sowohl untergeordnete Elemente (in diesem Fall Name und Vorname) als auch Attribute (id und geschlecht) halten. Sogar leere Elemente sind möglich (Kurssprecher).
+\begin{lstlisting}
+<Schüler id="87" geschlecht="m">
+  <Name>Schwarz</Name>
+  <Vorname>Tobias</Vorname>
+  <Kurssprecher/>
+</Schüler>
+\end{lstlisting}
+.\\
+Eine Dokumenttypdefinition kann wie folgt eingebunden werden:
+\begin{lstlisting}
+<!DOCTYPE Kurs SYSTEM "kurs.dtd">
+\end{lstlisting}
+\newpage
+\section{Dokumenttypdefinitionen (DTD)}
+\begin{zitat}{Valide}
+Ein XML-Dokument, das alle Festlegungen einer DTD erfüllt, heißt gültig bzw. valide bzgl. dieser DTD.
+\end{zitat}
+Die DTD für das oben angegebene Beispiel wäre folgendes:
+\begin{lstlisting}
+<!ELEMENT Kurs (Schueler*) >
+<!ATTLIST Kurs
+  name CDATA #REQUIRED
+>
+<!ELEMENT Schueler (Vorname, Name, Kurssprecher?) >
+<!ATTLIST Schueler
+  id CDATA #REQUIRED
+  geschlecht CDATA #REQUIRED
+>
+<!ELEMENT Vorname (#PCDATA) >
+<!ELEMENT Name (#PCDATA) >
+<!ELEMENT Kurssprecher EMPTY >
+\end{lstlisting}
+.\\
+In Attributlisten muss bei CDATA spezifiziert werden, ob das Attribut in in jedem Element vorkommen muss (REQUIRED) oder weggelassen werden kann (IMPLIED).
+\begin{table}[h]
+\caption{Zusatzsymbole}
+\begin{tabular}{ll}
+() & Klammern zur Bildung von Elementgruppen                                   \\
+,  & Trennzeichen innerhalb einer Sequenz von Elementen                        \\
+|  & Trennzeichen zwischen sich ausschließenden Alternativen                   \\
+*  & Element(gruppe) kann beliebig oft (auch gar nicht) vorkommen              \\
++  & Element(gruppe) muss mindestens einmal vorkommen, kann mehrfach vorkommen \\
+?  & Element(gruppe) kann einmal oder kein mal vorkommen
+\end{tabular}
+\end{table}
