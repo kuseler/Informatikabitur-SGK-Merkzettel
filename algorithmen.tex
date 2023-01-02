@@ -1,0 +1,181 @@
+\part{Algorithmen}
+%\section{Algorithmusbegriff}
+\begin{zitat}{Algorithmusbegriff}
+Ein Algorithmus ist eine Verarbeitungsvorschrift zur Lösung eines Problems, die so präzise formuliert ist, dass sie auch von einer Maschine abgearbeitet werden kann.
+\end{zitat}
+
+Ansprüche:
+\begin{itemize}
+    \item{Ausführbar}\\
+    Jeder Einzelschritt soll vom "'Prozessor"' ausführbar sein.
+    \item{Eindeutig}\\
+    Die Abfolge der Schritte sollte eindeutig sein.
+    \item{Endlich}\\
+    Die Anweisungen des Algorithmus sollten nicht unendlich sein.
+    \item{Allgemein}\\
+    Der Algorithmus sollte nicht nur ein bestimmtes Problem, sondern auch ähnliche Probleme lösen können.
+\end{itemize}
+
+\section{Struktogramm und Flussdiagramm}
+\includegraphics{nassi-shneiderman.png}\\
+Dies ist ein nassi-shneiderman Diagramm, auch Struktogramm genannt.
+
+\includegraphics[scale=0.25]{flussdiagramm.jpg}\\
+Dies ist ein Flussdiagramm.
+\newpage
+\section{Anweisungen}
+Algorithmen bestehen aus zwei Arten von Anweisungen:
+\begin{itemize}
+    \item{Elementaranweisungen} \\
+    Basisaktionen des Prozessors
+    \item{Kontrollanweisungen}\\
+    Anweisungen, die die Ablauflogik festlegen (Wiederholungen, Fallunterscheidungen, Sequenzbildung)
+\end{itemize}
+
+\section{Spezifikation}
+\begin{zitat}{Spezifikation}
+ Eine Spezifikation besteht aus einer Vorbedingung, die einen Ausgangszustand beschreibt, sowie einer Nachbedingung, die einen Endzustand beschreibt.
+\end{zitat}
+\begin{zitat}{terminierend}
+ Ein Algorithmus heißt terminierend bzgl. einer Spezifikation, wenn er bei jedem Ausgangszustand, der die Vorbedingung erfüllt, nach endlich vielen Verarbeitungsschritten zu einem Ende kommt.
+\end{zitat}
+\begin{zitat}{korrekt}
+Ein Algorithmus heißt (total) korrekt bzgl. einer Spezifikation, wenn er terminierend ist und jeden Ausgangszustand, der die Vorbedingung erfüllt, in einen Endzustand überführt, der die Nachbedingung erfüllt
+\end{zitat}
+.\\
+Die Korrektheit und Termination von Algorithmen kann auf zwei Arten erforscht werden:
+Einerseits durch Beweis und andererseits durch Testfälle.
+
+\section{Laufzeitverhalten}
+\begin{zitat}{Laufzeitverhalten}
+ Zwei Algorithmen heißen äquivalent, wenn sie bei gleichen Ausgangszuständen jeweils gleiche Endzustände erzeugen. Von zwei äquivalenten Algorithmen heißt der effizienter, der mit weniger Ressourcen (d.h. Rechenzeit oder Speicherplatz) auskommt.
+\end{zitat}
+
+
+\newpage
+\section{Sortieralgorithmen}
+\subsection{Selection Sort}
+\begin{zitat}{Selection Sort}
+Bei Selection Sort wird jeweils das kleinste Element der Liste ausgewählt und an die neue Liste angehängt.
+\end{zitat}
+.\\
+Der Algorithmus ist folgender:
+\begin{lstlisting}
+ALGORITHMUS selectionsort
+Übergabe: Liste L
+unsortierter Bereich ist die gesamte Liste L
+der sortierte Bereich ist zunächst leer
+SOLANGE der unsortierte Bereich noch Elemente hat:
+    suche das kleinste Element im unsortierten Bereich
+    entferne es im unsortierten Bereich
+    füge es im sortierten Bereich an letzter Stelle an
+Rückgabe: sortierter Bereich
+\end{lstlisting}
+.\\
+Das Laufzeitverhalten ist folgendes:
+\begin{table}[h]
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l|l|l|l|}
+\cline{2-4}
+                             & Best Case & Worst Case & Average Case \\ \hline
+\multicolumn{1}{|l|}{$O(n)$} & $n^2$     & $n^2$      & $n^2$        \\ \hline
+\end{tabular}
+}
+\end{table}
+
+\subsection{Insertion Sort}
+
+\begin{zitat}{Insertion Sort}
+Bei Insertion Sort wird das jeweils erste Element der alten Liste genommen und in die richtige Position in der neuen Liste gesetzt.
+\end{zitat}
+Der Algorithmus ist folgender:
+\begin{lstlisting}
+ALGORITHMUS insertionsort
+Übergabe: Liste
+sortierter Bereich besteht aus dem ersten Element der Liste
+unsortierter Bereich ist die Restliste (ohne das erste Element)
+SOLANGE der unsortierte Bereich Elemente hat:
+    entferne das erste Element aus dem unsortierten Bereich
+    füge es an der richtigen Stelle im sortierten Bereich ein
+Rückgabe: sortierter Bereich
+\end{lstlisting}
+.\\
+
+\begin{table}[h]
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l|l|l|l|}
+\cline{2-4}
+                             & Best Case & Worst Case & Average Case \\ \hline
+\multicolumn{1}{|l|}{$O(n)$} & $n$     & $n^2$      & $n^2$        \\ \hline
+\end{tabular}
+}
+\end{table}
+
+
+\subsection{Bubble Sort}
+
+\begin{zitat}{Bubble Sort}
+Bei Bubble Sort werden von Anfang bis Ende Elemente der Liste vertauscht, bis die Länge des unsortierten Bereiches 0 ist. Diese Länge des unsortierten Bereiches wird mit jedem Durchlauf verringert.
+\end{zitat}
+.\\
+Der Algorithmus ist folgender:
+\begin{lstlisting}
+ALGORITHMUS bubblesort
+Übergabe: Liste
+unsortierter Bereich ist zunächst die gesamte Liste
+SOLANGE der unsortierte Bereich noch mehr als ein Element hat:
+    durchlaufe den unsortierten Bereich von links nach rechts
+    wenn dabei zwei benachbarte Elemente in der falschen Reihenfolge vorliegen:
+        vertausche die beiden Elemente
+    verkürze den unsortierten Bereich durch Weglassen des letzten Elements
+Rückgabe: überarbeitete Liste
+\end{lstlisting}
+.\\
+Das Laufzeitverhalten ist folgendes:
+\begin{table}[h]
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l|l|l|l|}
+\cline{2-4}
+                             & Best Case & Worst Case & Average Case \\ \hline
+\multicolumn{1}{|l|}{$O(n)$} & $n$     & $n^2$      & $n^2$        \\ \hline
+\end{tabular}
+}
+\end{table}
+
+
+
+\subsection{Quicksort}
+
+\begin{zitat}{Bubble Sort}
+Bei Bubble Sort werden von Anfang bis Ende Elemente der Liste vertauscht, bis die Länge des unsortierten Bereiches 0 ist. Diese Länge des unsortierten Bereiches wird mit jedem Durchlauf verringert.
+\end{zitat}
+\begin{lstlisting}
+ALGORITHMUS quicksort
+Übergabe: Liste L
+wenn die Liste L mehr als ein Element hat:
+    # zerlegen
+    wähle als Pivotelement p das erste Element der Liste aus
+    erzeuge Teillisten K und G aus der Restliste (L ohne p) mit:
+    - alle Elemente aus K sind kleiner als das Pivotelement p
+    - alle Elemente aus G sind größergleich als das Pivotelement p
+    # Quicksort auf die verkleinerten Listen anwenden
+    KSortiert = quicksort(K)
+    GSortiert = quicksort(G)
+    # zusammensetzen
+    LSortiert = KSortiert + [p] + GSortiert
+sonst:
+    LSortiert = L
+Rückgabe: LSortiert
+\end{lstlisting}
+\begin{table}[h]
+\label{tab:my-table}
+\begin{tabular}{l|l|l|l|}
+\cline{2-4}
+                             & Best Case & Worst Case & Average Case \\ \hline
+\multicolumn{1}{|l|}{$O(n)$} & $n$     & $n^2$      & $n^2$        \\ \hline
+\end{tabular}
+\end{table}
+
