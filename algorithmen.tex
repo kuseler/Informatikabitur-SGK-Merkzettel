@@ -47,9 +47,14 @@ Die Korrektheit und Termination von Algorithmen kann auf zwei Arten erforscht we
 Einerseits durch Beweis und andererseits durch Testfälle.
 
 \section{Laufzeitverhalten}
-\begin{zitat}{Laufzeitverhalten}
- Zwei Algorithmen heißen äquivalent, wenn sie bei gleichen Ausgangszuständen jeweils gleiche Endzustände erzeugen. Von zwei äquivalenten Algorithmen heißt der effizienter, der mit weniger Ressourcen (d.h. Rechenzeit oder Speicherplatz) auskommt.
+\begin{zitat}{Problemgröße}
+ Eine (Kosten-) Funktion f wächst schneller als eine (Kosten-) Funktion g, wenn der Quotient f(n)/g(n) mit wachsendem n gegen unendlich strebt.
+
+Eine (Kosten-) Funktion f wächst langsamer als eine (Kosten-) Funktion g, wenn der Quotient f(n)/g(n) mit wachsendem n gegen 0 strebt.
+
+Eine (Kosten-) Funktion f wächst genauso schnell wie eine (Kosten-) Funktion g, wenn der Quotient f(n)/g(n) mit wachsendem n gegen eine Konstante c mit c>0 strebt.
 \end{zitat}
+
 
 
 \newpage
@@ -179,3 +184,44 @@ Rückgabe: LSortiert
 \end{tabular}
 \end{table}
 
+\section{Graphen}
+\subsection{Algorithmus von Dijkstra}
+\begin{lstlisting}[language=Python]
+ALGORITHMUS # von Dijkstra
+Übergabedaten: Graph, startKnoten, zielKnoten
+# Vorbereitung des Graphen
+für alle knoten des Graphen:
+    setze abstand auf 'u'
+    setze herkunft auf None
+setze abstand von startKnoten.abstand auf 0
+füge startKnoten in eine Liste zuVerarbeiten ein
+# Verarbeitung der Knoten
+SOLANGE die Liste zuVerarbeiten nicht leer ist:
+    bestimme einen Knoten minKnoten aus zuVerarbeiten mit minimalem Abstand
+    entferne minKnoten aus zuVerarbeiten
+    für alle nachbarKnoten von minKnoten:
+        gewicht = Gewicht der Kante von minKnoten zu nachbarKnoten
+        neuerAbstand = (abstand von minKnoten) + gewicht
+        WENN abstand von nachbarKnoten == 'u':
+            füge nachbarKnoten in die Liste zuVerarbeiten ein (z.B. am Listenende)
+            setze abstand von nachbarKnoten auf neuerAbstand
+            setze herkunft von nachbarKnoten auf minKnoten
+        SONST:
+            WENN nachbarKnoten in zuVerarbeiten liegt:
+                WENN abstand von nachbarKnoten > neuerAbstand:
+                    setze abstand von nachbarKnoten auf neuerAbstand
+                    setze herkunft von nachbarKnoten auf minKnoten
+weglaenge = abstand von zielKnoten
+# Erzeugung des Weges zum zielKnoten
+weg = []
+knoten = zielKnoten
+SOLANGE knoten != startKnoten und herkunft von knoten != None:
+    weg = [(herkunft von knoten, knoten)] + weg
+    knoten = herkunft von knoten
+Rückgabedaten: (weg, weglaenge)
+\end{lstlisting}
+
+\subsection{Travelling-Salesman-Problem}
+\begin{zitat}{Integration der naheliegendsten Knoten}
+Die naheliegende Lösung wäre, den jeweils naheliegendendsten Knoten für die Rundreise zu integrieren
+\end{zitat}
