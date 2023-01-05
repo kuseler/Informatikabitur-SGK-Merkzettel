@@ -1,0 +1,51 @@
+\part{Automaten und Sprachen}
+
+\section{Automaten}
+\begin{zitat}{EVA}
+EVA steht für Eingabe-Verarbeitung-Ausgabe
+\end{zitat}
+
+\begin{zitat}{Zuordnungsbasierte Systeme}
+Das Verhalten einfacher Systeme kann durch Zuordnung beschrieben werden.\\
+Mit einer Zuordnung bzw. Funktion legt man hier genau fest, wie die Verarbeitung der Eingaben erfolgen soll.
+\end{zitat}
+\begin{zitat}{Zustandsbasierte Systeme}
+ Bei komplexeren Systemen hängt das Verhalten nicht nur von der Eingabe ab. Hier spielt auch der Zustand, in dem das System sich aktuell befindet, eine wesentliche Rolle. Man beschreibt das Verhalten solcher Systeme oft mit Zustandsgraphen. \\
+ Endliche Automaten sind Zustandsbasierte Systeme.
+\end{zitat}
+
+\section{Sprachen}
+\subsection{Alphabet und Wörter}
+\begin{zitat}{Alphabet}
+Ein Alphabet ist eine nicht-leere endliche geordnete Menge von Symbolen.
+\end{zitat}
+\begin{zitat}{Wort}
+Ein Wort über einem Alphabet ist eine Hintereinanderreihung endlich vieler Symbole aus einem vorgegebenen Alphabet.
+\end{zitat}
+\begin{zitat}{Sprache}
+Eine (formale) Sprache über einem Alphabet Σ ist eine bestimmte Teilmenge der Menge Σ* aller möglichen Wörter über Σ.
+\end{zitat}
+
+\subsection{Syntax, Semantik, Pragmatik}
+\begin{zitat}{Syntax}
+Die Syntax einer Sprache (eines Zeichensystems) beschreibt die Regeln, nach denen die Sprachkonstrukte (Zeichen des Zeichensystems) gebildet werden.
+\end{zitat}
+\begin{zitat}{Semantik}
+Die Semantik einer Sprache (eines Zeichensystems) beschreibt die Bedeutung der Sprachkonstrukte (Zeichen des Zeichensystems). \end{zitat}
+\begin{zitat}{Pragmatik}
+ Die Pragmatik einer Sprache (eines Zeichensystems) beschäftigt sich mit der Verwendung und Bedeutung von Sprachkonstrukten in konkreten Situationen. \end{zitat}
+\subsection{Reguläre Grammatik}
+\begin{align*}
+&\text{\colorbox{lightgray}{Eine Grammatik G besteht immer aus diesen Elementen:}}\\
+&G = (N,T,P,S)\\
+&\text{\colorbox{lightgray}{N ist die Menge der Nichtterminale}}\\
+&N = {B,C,D}\\
+&\text{\colorbox{lightgray}{T ist die Menge der Terminalsymbole}}\\
+&T = {a,b,c}\\
+&\text{\colorbox{lightgray}{P ist die Menge der Produktionsregeln}}\\
+&P =(\\
+&A -> Aa\\
+&B -> BAa)\\
+&\text{\colorbox{lightgray}{S ist das Startsymbol und als Variable N enthalten}}\\
+&S -> A
+\end{align*}
