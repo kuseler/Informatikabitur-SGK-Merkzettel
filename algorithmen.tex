@@ -1,4 +1,4 @@
-#\part{Algorithmen}
+\part{Algorithmen}
 %\section{Algorithmusbegriff}
 \begin{zitat}{Algorithmusbegriff}
 Ein Algorithmus ist eine Verarbeitungsvorschrift zur Lösung eines Problems, die so präzise formuliert ist, dass sie auch von einer Maschine abgearbeitet werden kann.
@@ -55,8 +55,10 @@ Eine (Kosten-) Funktion f wächst langsamer als eine (Kosten-) Funktion g, wenn 
 Eine (Kosten-) Funktion f wächst genauso schnell wie eine (Kosten-) Funktion g, wenn der Quotient f(n)/g(n) mit wachsendem n gegen eine Konstante c mit c>0 strebt.
 \end{zitat}
 
-
-
+\section{NP-vollständig/hart}
+\begin{zitat}{NP-vollständig}
+ Ein Problem p* heißt NP-vollständig genau dann, wenn es in der Komplexitätsklasse NP liegt (d.h. mit einem nichtdeterministischen Algorithmus mit polynomialer Komplexität gelöst werden kann) und wenn jedes Problem p aus NP auf p* polynomial reduzierbar ist.
+\end{zitat}
 \newpage
 \section{Sortieralgorithmen}
 \subsection{Selection Sort}
@@ -185,6 +187,21 @@ Rückgabe: LSortiert
 \end{table}
 
 \section{Graphen}
+\subsection{Adjazenzmatrix}
+Wir betrachten diesen Graph:
+\includegraphics[scale=0.25]{graph1}\\
+Die zugehörige nachbarschaftstabelle:
+\includegraphics[scale=0.25]{nachbarschaftstabelle}\\
+Die Adjazenzmatrix wird von links nach oben gelesen.
+\subsection{Adjazenzliste}
+Eine Adjazenzliste ist wie folgt umgesetzt:
+\begin{lstlisting}
+A: B
+B: B, C, D
+C: A, B
+D:
+\end{lstlisting}
+\newpage
 \subsection{Algorithmus von Dijkstra}
 \begin{lstlisting}[language=Python]
 ALGORITHMUS # von Dijkstra
@@ -223,11 +240,10 @@ Rückgabedaten: (weg, weglaenge)
 
 \subsection{Travelling-Salesman-Problem}
 \begin{zitat}{Integration der naheliegendsten Knoten}
-Die naheliegende Lösung wäre, den jeweils naheliegendendsten Knoten für die Rundreise zu integrieren
+Die naheliegende Lösung wäre, immer den jeweils naheliegendendsten Knoten für die Rundreise zu integrieren.
 \end{zitat}
 
 \begin{zitat}{Integration der am weitesten entfernten Knoten}
 Bei der Integration der am weitesten entfernten Knoten wird immer der am weitesten entfernte Knoten als nächster Knoten der Rundreise gewählt. Anschließend wird dieser in die Rundreise über den naheliegendsten knoten integriert.
 \end{zitat}
-
- 
+\newpage
